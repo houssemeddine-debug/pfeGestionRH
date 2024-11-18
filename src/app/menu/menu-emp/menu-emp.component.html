@@ -1,0 +1,149 @@
+<body>
+  <div class="menu-bar">
+      <h1 class="logo">SMART<span> HR</span></h1>
+      <ul>
+        <li><a class="nav-link scrollto" routerLink=""><i class="bi bi-box-arrow-in-left"></i>Déconnexion</a></li>
+        
+      </ul>
+    </div>
+
+    <button class="btnRegister" [disabled]="loading || loaded" >
+      <span *ngIf="!loading && !loaded || s==0 ">Présence marqué</span>
+      <span *ngIf="loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+      <span *ngIf="loaded" >Présence marqué</span>
+    </button>
+
+  <div class="profile">
+  <div class="carousel">
+          <div class="x" >
+            
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/info_pers"><div class="img-area"><img src="assets/image/a30.jpg" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Info Personnel</h2>
+                      <p>La confidentialité de vos informations personnelles est notre priorité absolue. Nous mettons en place des mesures de sécurité strictes pour protéger vos données et assurer leur confidentialité!</p>
+                  </div>
+              </div>
+         
+  </div>
+  <div class="x">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/consulter-salaire"><div class="img-area"><img src="assets/image/a31.png" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Consulter Salaire Et Grade</h2>
+                      <p>La fonctionnalité "Consulter salaire et grade" permet aux employés d'accéder facilement à leurs informations salariales et hiérarchiques. Transparence et clarté pour une meilleure compréhension!</p>
+                  </div>
+              </div>
+         
+  </div>
+  <div class="x">
+   
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/demande_emp_conge"><div class="img-area"><img src="assets/image/a20.png" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Congé</h2>
+                      <p>La fonctionnalité "Congés" simplifie la demande et la gestion des congés des employés. Facilité et transparence pour une meilleure organisation.!</p>
+                  </div>
+              </div>
+          
+  </div>
+
+
+<br><br><br>
+
+<div class="y">
+  
+            <div class="card">
+                <div class="box1"></div>
+                <a routerLink="/demandeP" ><div class="img-area"><img src="assets/image/a32.png" alt=""></div></a>
+                <div class="main-text">
+                    <h2>Prets</h2>
+                    <p>La fonctionnalité "Prêt" permet aux employés de demander des prêts auprès de l'entreprise. Facilité d'accès aux ressources financières pour répondre aux besoins personnels des employés !</p>
+                </div>
+            </div>
+</div>
+  <div class="y">
+  
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/demande_emp_formation" ><div class="img-area"><img src="assets/image/a21.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Formation</h2>
+                      <p>La fonctionnalité "Formation" propose des opportunités de développement professionnel aux employés. Amélioration des compétences et croissance personnelle! </p>
+                  </div>
+              </div>
+         
+  </div>
+  <div class="y">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/transfert_demande" ><div class="img-area"><img src="assets/image/a34.png" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Demande Transfert</h2>
+                      <p>La fonctionnalité "Demande Transfert" facilite les demandes de transfert interne des employés. Flexibilité et opportunités de développement de carrière. !</p>
+                  </div>
+              </div>
+  </div>
+  <!-- <div class="y">
+
+  </div>
+  <div class="y">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a (click)="deleteCompte(user)" href="#myModal" data-toggle="modal" > <div class="img-area"><img src="assets/image/a33.png" alt=""></div>   </a>
+                  <div class="main-text">
+                      <h2>Supprimer Compte</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cupiditate recusandae quam amet enim voluptates alias accusantium sapiente! Adipisci vero fugiat aliquid explicabo quas eius!</p>
+                  </div>
+              </div>
+       
+  </div>
+  <div class="y">
+
+  </div> -->
+      </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <script>
+       $(document).ready(function(){
+          $('.carousel').carousel();
+        });	
+  </script>
+</body>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Are you sure?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" routerLink="">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete these records? This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" routerLink="" >Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>     

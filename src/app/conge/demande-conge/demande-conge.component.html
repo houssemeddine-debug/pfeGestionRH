@@ -1,0 +1,115 @@
+<app-nav-conge></app-nav-conge>
+<br><br>
+
+<h1 align="center">Liste des demandes de congés</h1>
+<br><br>
+
+  <div class="container-fuild mt-3">
+
+    <table class="table table-bordered" style="border-color: black;">
+        <thead>
+          <tr>
+            <th scope="col">Matricule</th>
+            <th scope="col">Cause</th>
+            <th scope="col">Date Début Congé</th>
+            <th scope="col">Date Fin Congé</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+
+		<tbody *ngIf="maListeA"  >
+          
+			<tr *ngFor="let c of maListeA" >
+		   
+			  <td *ngIf="c.role =='d' ">{{c.utilisateur.mat_Utilisateur}}</td>
+			  <td *ngIf="c.role =='d' ">{{c.type_conge}}</td>
+			  <td *ngIf="c.role =='d' ">{{c.date_debut_conge}}</td>
+			  <td *ngIf="c.role =='d' ">{{c.date_fin}}</td>
+			  <td *ngIf="c.role =='d' ">
+				<button type="button" class="btn btn-success" href="#myModal" data-toggle="modal" (click)="AccepterDemande(c.mat_conge)" >Accepter</button>&nbsp;
+				<button type="button" class="btn btn-danger " href="#myModal1"  data-toggle="modal" (click)="deleteDemandeConge(c.mat_conge)"><i class="b bn-trash-fill"></i>Refuser</button>
+				  
+			  </td>
+			
+		  
+			</tr>
+		  
+		  </tbody>
+
+
+      </table>
+
+  </div>
+
+
+  
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Great!</h4>	
+				<p>Your account has been created successfully.</p>
+				<button class="btn btn-success" data-dismiss="modal" onclick="location.reload()" ><span>Start Exploring</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div>     
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal HTML -->
+<div id="myModal1" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header1 justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops!</h4>	
+				<p>Something went wrong. File was not uploaded.</p>
+				<button class="btn btn-success" data-dismiss="modal" onclick="location.reload()">Try Again</button>
+			</div>
+		</div>
+	</div>
+</div>     
+
+
+
+
+
+
+
+
+
+

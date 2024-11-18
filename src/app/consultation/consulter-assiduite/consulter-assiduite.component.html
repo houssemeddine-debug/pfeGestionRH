@@ -1,0 +1,76 @@
+<app-nav></app-nav>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<h1>Consulter Assiduité</h1>
+<br><br>
+<!-- class="form-control" -->
+<div style="text-align: center;">
+<label for="fruits-select">Sélectionnez Département :</label><br>
+<select class="input-field"  aria-label="Default select example" [(ngModel)]="d"> 
+  <option   *ngFor="let d1 of maListeAa" [ngValue]="d1.id"  >{{d1.nom_departement}}</option>
+</select><br>
+<label for="fruits-select">Sélectionnez Mois :</label><br>
+<select  [(ngModel)]="moisActuel" name="m">
+  <option value="1">Janvier</option>
+  <option value="2">Février</option>
+  <option value="3">Mars</option>
+  <option value="4">Avril</option>
+  <option value="5">Mai</option>
+  <option value="6">Juin</option>
+  <option value="7">Juillet</option>
+  <option value="8">aout</option>
+  <option value="9">Septombre</option>
+  <option value="10">Octobre</option>
+  <option value="11">Nouvombre</option>
+  <option value="12">Decembre</option>
+</select>
+<p>     </p>
+<button (click)="vers()" >Consulter</button>
+<br><br>
+
+</div>
+<table id="customers">
+    <tr>
+      <th >Matricule Employé</th>
+      <th>prénom Employé</th>
+  
+      <th>Nom Employé</th>
+    </tr>
+    <tbody *ngIf="maListe" >
+    <tr *ngFor="let d of maListe" (click)="versEmp(d.mat_Utilisateur)">
+      <td >{{d.mat_Utilisateur}}</td>
+      <td>{{d.prenom_Utilisateur}}</td>
+      <td>{{d.nom_Utilisateur}}</td>
+    </tr>
+  </tbody>
+    
+  </table>
+
+  <br><br>
+
+  <table id="customers">
+    <tr>
+      <th ></th>
+      <th>Date</th>
+  
+      <th>Présence</th>
+    </tr>
+    <tbody *ngIf="maListeA">
+    <tr *ngFor="let d of maListeA">
+      <td >Pour Le Date :</td>
+      <td>{{d.clecompose.date}}</td>
+      <td *ngIf="d.etat == 'P'">Présent</td>
+      <td *ngIf="d.etat == 'A'">Absent</td>
+    </tr>
+  </tbody>
+    
+  </table>
+
+</body>
+</html>

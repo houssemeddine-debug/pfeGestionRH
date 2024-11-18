@@ -1,0 +1,56 @@
+
+
+
+
+
+<div class="menu-bar">
+    <h1 class="logo">SMART<span> HR</span></h1>
+    
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" routerLink="/transfert_demande" >Demande De Transfert</a></li>
+          </ul>
+          <ul>
+            <li>
+           <a class="nav-link scrollto"  href="#myModal" class="trigger-btn" data-toggle="modal">Suivie demande</a></li>
+         </ul>
+          <ul>
+             <li><a class="nav-link scrollto" routerLink="/menu_emp">Menu</a></li>
+          </ul>
+        </nav>
+   </div>
+  
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  
+  
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+  
+    <div align="right">
+      <button id="e" (click)="oo()"><i style="font-size: 30px;" class="bi bi-box-arrow-in-left"></i></button>
+    </div>
+
+      <div align="center">
+        <br><br><br>
+  <table id="customers">
+    <tr>
+      <th>Demande De Transfert </th>
+      <th>Résultat</th>
+    </tr>
+    <tbody *ngIf="maliste">
+    <tr *ngFor="let a of maliste">
+      <td>Votre Demande  : </td> 
+      <!-- <td > Accepter</td> -->
+      <td *ngIf=" (a.etat1==0 && a.etat2==0) || (a.etat1==0 && a.etat2==1) || (a.etat1==1 && a.etat2==0)"> En Cours</td>
+      <td *ngIf="a.etat1==1 && a.etat2==1"> Accepter</td>
+      <td *ngIf="a.etat1==2 || a.etat2==2"> Refuser</td>
+      <!-- <td > Refuser </td> -->
+    </tr>
+  
+   
+  </tbody>
+  </table>
+  </div>
+  </div>
+  

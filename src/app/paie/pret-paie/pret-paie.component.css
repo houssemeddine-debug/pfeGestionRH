@@ -1,0 +1,36 @@
+h5{
+    color: aliceblue;
+}
+.close{
+    font-weight: 700;
+    font-size: 23px;
+    background-color: border-box;
+    width: 50px;
+    border: none;
+    background: none;
+    color: white;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #E34724;
+}
+table.table td i {
+    font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}    
+
+.modal-footer{
+    background: linear-gradient(to bottom right, #152733 ,#595c5e );
+}
+
+.modal-header{
+    background: linear-gradient(to bottom right, #152733 ,#595c5e );
+}

@@ -1,0 +1,118 @@
+<app-nav-conge></app-nav-conge>
+<br><br>
+
+   
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">ADD COMPANY DATA</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form >
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Numero conge</label>
+              <input type="text" class="form-control"   placeholder="Entrer Nom"
+              [(ngModel)]="conge.mat_conge" name="n">
+            </div>
+                
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Type Du Conge</label>
+              <input type="text" class="form-control"   placeholder="Entrer Nom"
+              [(ngModel)]="conge.type_conge" name="no">
+            </div>
+                
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">De</label>
+              <input type="text" class="form-control"   placeholder="Entrer Nom"
+              [(ngModel)]="conge.date_debut_conge" name="nom_departemt">
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">à</label>
+              <input type="text" class="form-control"   placeholder="Entrer Nom"
+              [(ngModel)]="conge.date_fin" name="nont">
+            </div>
+            </form>
+        </div>
+        <div  class="modal-footer" style="background: rgba(40,57,101,.9);">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary"  (click)="saveConge(conge)" onclick="location.reload()">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h1 align="center">Liste des congés</h1>
+<br><br>
+
+
+  <div class="container-fuild mt-3">
+    
+    <table class="table table-bordered" style="border-color: black;">
+        <thead >
+          <tr >
+            <th scope="col">Numero</th>
+            <th scope="col">Cause</th>
+            <th scope="col">Date debut</th>
+            <th scope="col">Date fin</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+  
+        <tbody *ngIf="maListeA"  >
+          
+          <tr *ngFor="let c of maListeA" >
+         
+            <td *ngIf="c.role =='f' ">{{c.mat_conge}}</td>
+            <td *ngIf="c.role =='f' ">{{c.type_conge}}</td>
+            <td *ngIf="c.role =='f' ">{{c.date_debut_conge}}</td>
+            <td *ngIf="c.role =='f' ">{{c.date_fin}}</td>
+            <td *ngIf="c.role =='f' ">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="update(c.mat_conge)">Edit</button>&nbsp;
+                <button type="button" class="btn btn-danger " href="#myModal"  data-toggle="modal" (click)="deleteConge(c.mat_conge)"><i class="b bn-trash-fill" ></i>Delete</button>
+                
+            </td>
+        
+          </tr>
+        
+        </tbody>
+ 
+      </table>
+
+  </div>
+
+
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header flex-column">
+            <div class="icon-box">
+              <i class="material-icons">&#xE5CD;</i>
+            </div>						
+            <h4 class="modal-title w-100">Are you sure?</h4>	
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Do you really want to delete these records? This process cannot be undone.</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" onclick="location.reload()">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>     
+  

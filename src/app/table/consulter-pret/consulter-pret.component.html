@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<h1 style="color: rgba(40,57,101,.9);" >Liste Des Prets</h1>
+
+<table id="customers">
+  <thead>
+    <tr>
+      <th scope="col">Matricule employé</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Departement</th>
+    </tr>
+  </thead>
+<tbody *ngIf="p"  >
+<tr *ngFor="let c of list" routerLink="/info_emp" (click)="Setid(c.utilisateur.mat_Utilisateur)">
+  <td >{{c.utilisateur.mat_Utilisateur}}</td>
+  <td >{{c.utilisateur.nom_Utilisateur}}</td>
+  <td >{{c.utilisateur.prenom_Utilisateur}}</td>
+  <td >{{c.utilisateur.departement.nom_departement}}</td>  
+</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

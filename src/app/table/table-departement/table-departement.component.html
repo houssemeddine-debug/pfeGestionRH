@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<h1 style="color: rgba(40,57,101,.9);">List Des Départements</h1>
+
+<table id="customers">
+  <tr>
+    <th routerLink="/menu_rh2">numero</th>
+    <th>nom département</th>
+    <th>Contact</th>
+  </tr>
+  <tbody *ngIf="dep">
+  <tr *ngFor="let d of dep">
+    <td>{{d.id}}</td>
+    <td>{{d.nom_departement}}</td>
+    <td>{{d.email_departement}}</td>
+  </tr>
+</tbody>
+</table>
+
+</body>
+</html>

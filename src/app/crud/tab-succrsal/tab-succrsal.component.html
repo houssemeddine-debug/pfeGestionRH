@@ -1,0 +1,208 @@
+
+<div class="menu-bar">
+	<h1 class="logo">SMART<span> HR</span></h1>
+	<ul>
+	  <li><a class="nav-link scrollto" routerLink="/menu_directeur"><i class="bi bi-box-arrow-in-left"></i>Menu</a></li>
+	  
+	</ul>
+  </div>
+  <br>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter Succursale</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<form >	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule</label>
+					<input type="email" class="form-control"   placeholder="Entrer matricule"
+					[(ngModel)]="s.mat_succursale" name="et">
+				  </div>
+
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom Succursale</label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="s.nom_succursale" name="nom_departementz">
+				  </div>
+				  
+				  <div class="form-group mb-2">
+					  <label for="exampleInputEmail1">E-mail</label>
+					  <input type="text" class="form-control"   placeholder="Entrer email"
+					  [(ngModel)]="s.email_succursale" name="nom_dertemeznt">
+					</div>
+	  
+					<div class="form-group mb-2">
+					  <label for="exampleInputEmail1">Adress	</label>
+					  <input type="email" class="form-control"   placeholder="Entrer adresse"
+					  [(ngModel)]="s.adrese_succursale" name="ail_departezment">
+					</div>
+
+					<label for="fruits-select">Sélectionnez La Nouvelle :</label>
+					  <select class="input-field" aria-label="Default select example" [(ngModel)]="s.societe1.mat_societe" name="aa" > 
+						<option   *ngFor="let s of listeS" [ngValue]="s.mat_societe" >{{s.nom_societe}}</option>
+					  </select>
+				
+			  </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary" (click)="saveSuccrsale(s)" >Ajouter</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<h1>Gestion des Succursales</h1>
+
+
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: rgba(40,57,101,.9);">
+Ajouter Succursale 
+</button>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list" style="border-color: black;">
+					<thead>
+						<tr>
+							<th class="text-center">Nom</th>
+							<th class="text-center">Matricule</th>
+							<th class="text-center">Adresse</th>
+							<th class="text-center">Email</th>
+							<th class="text-center">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody *ngIf="liste">
+						<tr *ngFor="let s of liste">
+							<td class="text-center">
+								<img src="assets\image\a12.png">{{s.nom_succursale}}
+							
+							</td>
+							<td class="text-center">
+								{{s.mat_succursale}}
+							</td>
+							<td class="text-center">
+								
+								{{s.adrese_succursale}}
+							</td>
+							<td class="text-center">
+								{{s.email_succursale}}
+							</td>
+							<td style="width: 20%;" class="text-center">
+								<a data-bs-toggle="modal" href="#updateModal"  class="table-link" (click)="affichersuccursale(s.mat_succursale)">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse" ></i>
+									</span>
+								</a>
+								<a  href="#myModal" data-toggle="modal" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse" (click)="env(s.mat_succursale)" ></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Vous etes sur ?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p> Si vous confirmez , votre succursale sera supprimé. </p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger"  onclick="location.reload()" (click)="deleteSuccrsale(k)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+
+  
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier Succursale</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+			<form  >
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule Succursale</label>
+					<input type="email" class="form-control"    disabled placeholder="Entrer matricule"
+					[(ngModel)]="su.mat_succursale" name="e">
+				  </div>
+				
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom Succursale</label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="su.nom_succursale" name="n">
+				  </div>
+  
+				  <div class="form-group mb-2">
+					  <label for="exampleInputEmail1">E-mail</label>
+					  <input type="text" class="form-control"   placeholder="Entrer email"
+					  [(ngModel)]="su.email_succursale" name="no">
+					</div>
+	  
+					<div class="form-group mb-2">
+					  <label for="exampleInputEmail1">Adress	</label>
+					  <input type="email" class="form-control"   placeholder="Entrer adress"
+					  [(ngModel)]="su.adrese_succursale" name="emai">
+					</div>
+					
+					  <label for="fruits-select">Sélectionnez La Nouvelle :</label>
+					  <select class="input-field" aria-label="Default select example" [(ngModel)]="su.societe1.mat_societe" name="aa" > 
+						<option   *ngFor="let s of a" [ngValue]="s.mat_societe" >{{s.nom_societe}}</option>
+					  </select>
+			  </form>
+
+
+			
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary"  (click)="deleteSuccrsale(su.mat_succursale)" (click)="saveSuccrsale1(su)" >Modifier</button>
+      </div>
+    </div>
+  </div>
+  </div>

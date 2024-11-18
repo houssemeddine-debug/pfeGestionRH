@@ -1,0 +1,50 @@
+
+<body>
+
+<div class="container">
+    <div class="forms-container"style="background-image:url(assets/img/slide/slide-1.jpg) ;">
+      <div class="signin-signup">
+        
+        <form   class="sign-in-form" >
+          
+          <h2 class="title">Mot De Passe Oublié	</h2>
+        <!-- //  <img src="assets/image/a20.png" class="i" > -->
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text"   placeholder="Matricule" 
+             [(ngModel)]="ncin" name="utilisateur"/>
+          </div>
+          <button   class="btn solid" (click)="Envoyer()" >Génere</button> 
+        </form>
+      </div>
+      <div class="panels-container">
+          <div class="panel left-panel">
+            <div class="content">
+             
+              <h3>Mot de passe oublié</h3>
+              <p>
+                Saisir Votre Matricule pour récupérer le mot de passe que vous avez oublié 
+              </p>
+            </div>
+            <img src="img/log.svg" class="image" alt="" />
+          </div>
+        </div>
+  </div>
+  </div>
+</body>
+
+<div id="ii" class="modal" tabindex="-1" align=center>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body">
+        <p>Mot de passe envoyée par e-mail.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="location.reload()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

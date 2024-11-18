@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v10 by Colorlib</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body class="form-v10">
+	<h1 style="background-color: rgba(20, 33, 68, 0.9); text-align: center; color: aliceblue;">Détails prêt</h1>
+	<div class="page-content">
+		<div class="form-v10-content">
+			
+			<form class="form-detail" action="#" method="post" id="myform">
+				<div class="form-left">
+					<h2>Employé</h2>
+					<!-- <div class="form-row">
+						<select name="title">
+						    <option class="option" value="title">Title</option>
+						    <option class="option" value="businessman">Businessman</option>
+						    <option class="option" value="reporter">Reporter</option>
+						    <option class="option" value="secretary">Secretary</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div> -->
+
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<label style=" color: rgba(20, 33, 68, 0.9); "> Prenom : </label>
+							<input type="text" name="first_name" id="first_name" disabled placeholder="Company" class="input-text" [ngModel]="employee.nom_Utilisateur" name="n"/>
+						</div>
+						<div class="form-row form-row-2">
+							<label style=" color: rgba(20, 33, 68, 0.9);"> Nom : </label>
+							<input type="text" name="last_name" id="last_name" disabled placeholder="Company" class="input-text" [ngModel]="employee.prenom_Utilisateur" name="p"/>
+						</div>
+					</div>
+					<div class="form-row">
+						<label style=" color: rgba(20, 33, 68, 0.9); "> Position :  </label>
+						<input type="text" name="company" class="company" disabled placeholder="Company" id="company" [ngModel]="employee.role_Utilisateur" name="r"/>
+					</div>
+					<div class="form-row">
+						<label style=" color: rgba(20, 33, 68, 0.9); "> E-mail : </label>
+						<input type="text" name="company" class="company" disabled placeholder="Company" id="company" [ngModel]="employee.email_Utilisateur" name="e"/>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-3">
+							<label style=" color: rgba(20, 33, 68, 0.9); "> Grade :  </label>
+							<input type="text" name="business" class="business" disabled placeholder="Company" id="business" [ngModel]="employee.grade_Utilisateur" name="g"/>
+						</div>
+
+						<div class="form-row form-row-3">
+							<label style=" color: rgba(20, 33, 68, 0.9); "> Nom departement :</label>
+							<input type="text" name="business" class="business" disabled placeholder="Company" id="business" [ngModel]="employee.departement.nom_departement" name="d"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-right">
+					<h2> Détails prêt</h2>
+					<div class="form-row">
+						<label style=" color: rgba(237, 238, 241, 0.9); "> Type De Pret :  </label>
+						<input type="text" name="street" class="street" id="street" disabled placeholder [ngModel]="pret.type_pret" name="t"/>
+					</div>
+					<div class="form-row">
+						<label style=" color: rgba(237, 238, 241, 0.9); "> Somme Du Pret :  </label>
+						<input type="text" name="additional" class="additional" id="additional" disabled placeholder [ngModel]="pret.somme_pret +' DT'" name="s"/>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<label style=" color: rgba(237, 238, 241, 0.9); "> Versement Mensuel :  </label>
+							<input type="text" name="zip" class="zip" id="zip" disabled placeholder [ngModel]="pret.versement +' DT'" name="v"/>
+						</div>
+
+						<div class="form-row form-row-1" >
+							<label style=" color: rgba(237, 238, 241, 0.9); "> Eata Du Pret :  </label>
+							<input type="text" name="zip" class="zip" id="zip" disabled placeholder *ngIf="pret.etatPret == '0'" value="en cours"/>
+							<input type="text" name="zip" class="zip" id="zip" disabled placeholder *ngIf="pret.etatPret == '1'" value="Terminé"/>
+						</div>
+						
+					</div>
+					<div class="form-row">
+						<label style=" color: rgba(237, 238, 241, 0.9); "> Date De Début :  </label>
+						<input type="text" name="additional" class="additional" disabled placeholder id="additional" [ngModel]="d" name="db"/>
+					</div>
+
+					<div class="form-row">
+						<label style=" color: rgba(237, 238, 241, 0.9); "> Date Fin  :  </label>
+						<input type="text" name="additional" class="additional" disabled placeholder id="additional" [ngModel]="f" name="df"/>
+					</div>
+
+					<div class="form-row form-row-1" >
+						<label style=" color: rgba(237, 238, 241, 0.9); "> Duré :  </label>
+						<input type="text" name="zip" class="zip" id="zip" disabled placeholder *ngIf="pret.type_pret == 'Pret à court terme'" value=" 6 mois"/>
+						<input type="text" name="zip" class="zip" id="zip" disabled placeholder *ngIf="pret.type_pret == 'Pret à long terme'" value=" 12 mois "/>
+					</div>
+					
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Retour" routerLink="/pret_paie">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+
+<div class="menu-bar">
+	<h1 class="logo">SMART<span> HR</span></h1>
+	<ul>
+	  <li><a class="nav-link scrollto" routerLink="/menu_directeur"><i class="bi bi-box-arrow-in-left"></i>Menu</a></li>
+	  
+	</ul>
+  </div>
+
+  <br>
+ 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header" style="background: rgba(40,57,101,.9);">
+		  <h5 class="modal-title" id="exampleModalLabel">Ajouter Société</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form  >
+			  
+  
+				<div class="form-group mb-2">
+				  <label for="exampleInputEmail1">Matricule</label>
+				  <input type="email" class="form-control"   placeholder="Entrer matricule"
+				  [(ngModel)]="societe.mat_societe" name="email_departement">
+				  <p style="color: red;" *ngIf="test==1">{{msg}}</p>
+					<p  *ngIf="test==0"></p>
+				</div>
+
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom Societe</label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="societe.nom_societe" name="nnt">
+					<p style="color: red;" *ngIf="test2==1">Nom invalide</p>
+					<p  *ngIf="test2==0"></p>
+				  </div>
+
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">E-mail</label>
+					<input type="text" class="form-control"   placeholder="Entrer email"
+				    [(ngModel)]="societe.email_societe" name="nom_departement">
+					<p style="color: red;" *ngIf="test3==1">E-mail invalide</p>
+					<p  *ngIf="test3==0"></p>
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Adress	</label>
+					<input type="email" class="form-control"   placeholder="Entrer adress"
+					[(ngModel)]="societe.adrese_societe" name="ement">
+				  </div>
+				
+				
+			</form>
+	  </div>
+	  <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+		<button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+		<button type="submit" class="btn btn-secondary" (click)="saveS1(societe)">Ajouter</button>
+	  </div>
+	</div>
+  </div>
+  </div>
+  
+<h1>Gestion des Sociétés</h1>
+
+	<button  type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: rgba(40,57,101,.9);">
+		Ajouter Société 
+	  </button>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th class="text-center">Nom</th>
+							<th class="text-center">Matricule</th>
+							<th class="text-center">email</th>
+							<th class="text-center">adress</th>
+							<th class="text-center">Actions &nbsp;</th>
+						</tr>
+					</thead>
+					<tbody *ngIf="liste">
+						<tr *ngFor="let d of liste">
+							<td class="text-center">
+								<img src="assets\image\a12.png">
+								<a href="#" class="user-link">{{d.nom_societe}}</a>
+								
+							</td>
+							<td class="text-center">
+								{{d.mat_societe}}
+							</td>
+							<td class="text-center">
+								<span class="label label-default">{{d.email_societe}}</span>
+							</td>
+							<td class="text-center">
+								{{d.adrese_societe}}
+								
+							</td>
+
+						
+						    <td style="width: 20%;"  class="text-center">
+								
+								<a  href="#ModalUpdate" data-bs-toggle="modal" (click)="update(d.mat_societe)" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+									
+								</a>
+								
+								
+								<a  href="#myModal" data-toggle="modal"  (click)="env(d.mat_societe)"  class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x" ></i>
+										<i  class="fa fa-trash-o fa-stack-1x fa-inverse"   ></i>
+									</span>
+								</a>
+							</td>
+
+
+							  
+						</tr>
+						
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Vous etes sur ?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p> Si vous confirmez , votre société sera supprimé. </p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger"  (click)="deleteS(e)" onclick="location.reload()" >Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+
+
+
+
+
+
+  
+  <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header" style="background: rgba(40,57,101,.9);">
+		  <h5 class="modal-title" id="exampleModalLabel">Modifier Société</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form  >
+			 
+  
+				<div class="form-group mb-2">
+				  <label for="exampleInputEmail1">Matricule</label>
+				  <input type="email" class="form-control"   disabled placeholder="Entrer matricule"
+				  [(ngModel)]="s.mat_societe" name="email">
+				</div>
+
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom Societe</label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="s.nom_societe" name="nom">
+				  </div>
+
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">E-mail</label>
+					<input type="text" class="form-control"   placeholder="Entrer email"
+				    [(ngModel)]="s.email_societe" name="n">
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Adress	</label>
+					<input type="email" class="form-control"   placeholder="Entrer adress"
+					[(ngModel)]="s.adrese_societe" name="e">
+				  </div>
+				
+				
+			</form>
+	  </div>
+	  <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+		<button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+		<button type="submit" class="btn btn-secondary"  (click)="deleteS(s.mat_societe)" (click)="saveS(s)" >Modifier</button>
+	  </div>
+	</div>
+  </div>
+  </div>

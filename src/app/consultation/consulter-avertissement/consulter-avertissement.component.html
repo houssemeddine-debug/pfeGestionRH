@@ -1,0 +1,87 @@
+<app-nav></app-nav>
+<br>
+<h1 style="color: rgba(40,57,101,.9);">AVERTISSEMENT</h1>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un avertissement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+      <div class="modal-body">
+          <form >
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Contenu D'Avertissement</label>
+            <textarea type="text-Area" class="form-control"   placeholder="Entrer email"
+              [(ngModel)]="avertissement.contenu_avertissement" name="nom_departement"></textarea>
+            </div>
+
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Matricule</label>
+            <input type="email" class="form-control"   placeholder="Entrer matricule"
+            [(ngModel)]="avertissement.utilisateur.mat_Utilisateur" name="eparment">
+          </div>
+                  
+        </form>
+      </div>
+      <div  class="modal-footer" >
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Annuler</button>
+        <button class="btn btn-secondary" (click)="saveA()" >Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background:rgba(40,57,101,.9);">
+  Ajouter Avertissement 
+</button>
+<br><br>
+<table id="customers" >
+ 
+  <tr>
+    <th>Numero</th>
+    <th>Contenue</th>
+    <th>nom d'employé avertit</th>
+    <th>Son Département</th>
+  </tr>
+  <tbody *ngIf="a">
+  <tr  *ngFor="let a1 of a">
+    <td> {{a1.id}} </td>
+    <td> {{a1.contenu_avertissement}} </td>
+    <td>{{a1.utilisateur.prenom_Utilisateur}}   {{a1.utilisateur.nom_Utilisateur}} </td>
+    <td> {{a1.utilisateur.departement.nom_departement}} </td>
+  </tr>
+</tbody>
+</table>
+
+ 
+<!-- <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: rgba(40,57,101,.9);">
+        <h5 class="modal-title" id="exampleModalLabel">ADD Employee DATA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <form >
+              <div *ngFor="let item of fo | keyvalue" class="form-group mb-2">
+                <label for="exampleInputEmail1">{{item.key}}</label>
+                <input type="text" class="form-control"   placeholder="Entrer Nom"
+                [(ngModel)]="fo[item.key]" name="{{item.key}}" name="nom_departement">
+              </div>
+
+              
+            </form>
+    </div>
+    <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+      <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+      <button type="submit" class="btn btn-secondary"  onclick="location.reload()">Ajouter</button>
+    </div>
+  </div>
+</div>
+</div> -->

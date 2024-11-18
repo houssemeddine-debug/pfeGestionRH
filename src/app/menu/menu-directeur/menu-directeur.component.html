@@ -1,0 +1,156 @@
+<body>
+  <div class="menu-bar">
+      <h1 class="logo">SMART<span> HR</span></h1>
+      <ul>
+        <li><a class="nav-link scrollto" routerLink=""><i class="bi bi-box-arrow-in-left"></i>Déconnexion</a></li>
+        
+      </ul>
+    </div>
+<br><br>
+<button class="btnRegister" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="afficherd(user)" ><i class="bi bi-person"></i>
+Info Personnel
+</button>
+  <div class="profile">
+  <div class="carousel">
+          <div class="x" >
+            
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/tab_company"><div class="img-area"><img src="assets/image/a10.png" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Gestion Des Sociétés</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste de Vos sociétés .De plus ajouter , suprimmer une société  et  modifier leurs informations. </p>
+                  </div>
+              </div>
+          
+  </div>
+  <div class="x">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/tab_s"> <div class="img-area"><img src="assets/image/a11.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Gestion Des succursales</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste de vos succursales de plus ajouter , suprimmer une succursale et  modifier leurs informations.</p>
+                  </div>
+              </div>
+         
+  </div>
+  <div class="x">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/tab_paie"> <div class="img-area"><img src="assets/image/a9.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Gestion Des Gestionnaires</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste de vos Gestionnaires de plus ajouter , suprimmer , Activer ou Déactiver un gestionnaire et modifier leurs informations. </p>
+                  </div>
+              </div>
+         
+  </div>
+
+
+<br><br><br>
+
+  <div class="y">
+         
+  </div>
+  <div class="y">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a (click)="env(user)" href="#myModal" data-toggle="modal" > <div class="img-area"><img src="assets/image/a33.png" alt=""></div>  </a>
+                  <div class="main-text">
+                      <h2>Supprimer Compte</h2>
+                      <p>La supression de votre compte entraine la supression de tout vos donnés sur la plateforme.</p>
+                  </div>
+              </div>
+        
+  </div>
+  <div class="y">
+          
+  </div>
+      </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <script>
+       $(document).ready(function(){
+          $('.carousel').carousel();
+        });	
+  </script>
+</body>
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Vous etes sur?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" routerLink="">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Voulez vous vraiment supprimer votre compte de notre plateforme.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" (click)="deleteCompte(k)" routerLink="" >Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: aliceblue;">Modifier Vos Données</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<!--(ngSubmit)="(onSubmit())" -->
+			<form   >
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule	</label>
+					<input type="email" class="form-control"   disabled placeholder="Entrer adress"
+					[(ngModel)]="d.ncin" name="a">
+				  </div>
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom </label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="d.nom" name="in">
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Prenom</label>
+					<input type="email" class="form-control"   placeholder="Entrer matricule"
+					[(ngModel)]="d.prenom" name="h">
+				  </div>
+
+					  <div class="form-group mb-2">
+						<label for="exampleInputEmail1">mdp	</label>
+						<input type="email" class="form-control"   placeholder="Entrer adress"
+						[(ngModel)]="d.mdp" name="b">
+					  </div>
+					 
+			  </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary" (click)="deleteCompte(user)" (click)="saveDirecteur(d)"  >Modifier</button>
+      </div>
+    </div>

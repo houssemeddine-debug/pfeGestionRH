@@ -1,0 +1,171 @@
+
+<div class="menu-bar">
+	<h1 class="logo">SMART<span> HR</span></h1>
+	<ul>
+	  <li><a class="nav-link scrollto" routerLink="/menu_rh"><i class="bi bi-box-arrow-in-left"></i>Retour</a></li>
+	</ul>
+  </div>
+  <br>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: rgba(40,57,101,.9);">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Département</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form >
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1">Nom Département</label>
+                <input type="text" class="form-control"   placeholder="Entrer Nom"
+				[(ngModel)]="departement.nom_departement" name="nom_dep">
+              </div>
+
+              <div class="form-group mb-2">
+                <label for="exampleInputEmail1">E-mail</label>
+                <input type="email" class="form-control"   placeholder="Entrer email"
+				 [(ngModel)]="departement.email_departement" name="email_departemt">
+              </div>
+             
+          </form>
+    </div>
+    <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+      <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+      <button type="submit" class="btn btn-secondary"  (click)="savedepartement(departement)">Ajouter</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<h1 style="color: rgba(40,57,101,.9);">Gestion des Départements</h1>
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: rgba(40,57,101,.9);">
+Ajouter département 
+</button>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th class="text-center">Numero</th>
+							<th class="text-center">Nom</th>
+							<th class="text-center">E-mail</th>
+							<th class="text-center">Actions&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody *ngIf="maListeA">
+						<tr *ngFor="let d of maListeA">
+							<td class="text-center">
+								<img src="assets\image\a12.png">
+								<a href="#" class="user-link">{{d.id}}</a>
+								
+							</td>
+							<td class="text-center">
+								{{d.nom_departement}}
+							</td>
+							<td class="text-center">
+								<span class="label label-default">{{d.email_departement}}</span>
+							</td>
+						    <td style="width: 20%;"  class="text-center">
+								
+								<a  href="#ModalUpdate" data-bs-toggle="modal" (click)="env(d.id)" (click)="afficherdepartement(d.id)" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								
+								<a  href="#myModal" data-toggle="modal"   (click)="env(d.id)" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x" ></i>
+										<i  class="fa fa-trash-o fa-stack-1x fa-inverse"  ></i>
+									</span>
+								</a>
+							</td>
+
+
+							  
+						</tr>
+						
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Vous etes sur ?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p> Si vous confirmez , cette département sera supprimé. </p>
+        </div>
+        <div class="modal-footer justify-content-center">	
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteDepartement(ml)" onclick="location.reload()"  >Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+<!---->
+
+<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier Département</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form >
+              <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Numero Département</label>
+              <input type="text" class="form-control"    disabled placeholder="Entrer Nom"
+              [(ngModel)]="departement1.id" name="ia">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="exampleInputEmail1">Nom Département</label>
+                  <input type="text" class="form-control"   placeholder="Entrer Nom"
+                  [(ngModel)]="departement1.nom_departement" name="na">
+                </div>
+  
+                <div class="form-group mb-2">
+                  <label for="exampleInputEmail1">E-mail</label>
+                  <input type="email" class="form-control"   placeholder="Entrer email"
+                   [(ngModel)]="departement1.email_departement" name="ea">
+                </div>
+               
+                
+            </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-secondary" (click)="deleteDepartement(ml)" (click)="savedepartement(departement1)" >Ajouter</button>
+      </div>
+    </div>
+  </div>
+  </div> 

@@ -1,0 +1,122 @@
+<body>
+    <div class="menu-bar">
+        <h1 class="logo">SMART<span> RH</span></h1>
+        <ul>
+          <li><a class="nav-link scrollto" routerLink=""><i class="bi bi-box-arrow-in-left"></i>Déconnexion</a></li>
+          
+        </ul>
+      </div>
+  <br><br><br>
+  <button class="btnRegister" routerLink="/menu_emp"><i class="bi bi-person"></i>
+    Mon Compte
+    </button>
+    <div class="profile">
+		<div class="carousel">
+            <div class="x" >
+            
+                <div class="card">
+                    <div class="box1"></div>
+                    <a  routerLink="/pret_paie" > <div class="img-area"><img src="assets/image/a28.png" alt=""></div>   </a>
+                    <div class="main-text">
+                        <h2>Gestion Des Prets</h2>
+                        <p>La fonction "Gestion de prêt" facilite la gestion efficace des prêts, y compris le suivi, les échéances et les rapports détaillés.!</p>
+                    </div>
+                </div>
+         
+		</div>
+		<!-- <div class="x">
+           
+                <div class="card">
+                    <div class="box1"></div>
+                    <a  routerLink="/salaire_paie"> <div class="img-area"><img src="assets/image/a26.jpg" alt=""></div></a>
+                    <div class="main-text">
+                        <h2>Gestion Des Salaires</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cupiditate recusandae quam amet enim voluptates alias accusantium sapiente! Adipisci vero fugiat aliquid explicabo quas eius!</p>
+                    </div>
+                </div>
+   
+		</div> -->
+		<!-- <div class="x">
+            
+                 <div class="card">
+                    <div class="box1"></div>
+                    <a  routerLink="/rapport_succrsale"> <div class="img-area"><img src="assets/image/a24.png" alt=""></div></a>
+                    <div class="main-text">
+                        <h2>Rédiger Rapport Du Succrsale</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cupiditate recusandae quam amet enim voluptates alias accusantium sapiente! Adipisci vero fugiat aliquid explicabo quas eius!</p>
+                    </div>
+                </div> 
+            
+		</div> -->
+
+
+<!-- <br><br><br> -->
+
+		<div class="x">
+            
+                <div class="card">
+                    <div class="box1"></div>
+                    <a  routerLink="/rapport_succrsale"><div class="img-area"><img src="assets/image/a25.png" alt=""></div></a>
+                    <div class="main-text">
+                      <h2>Rédiger Rapport Du Succrsale</h2>
+                        <p>La fonction "Rédiger rapport par succursale" permet d'obtenir des rapports détaillés sur les performances de chaque succursale, facilitant la prise de décisions stratégiques!</p>
+                    </div>
+                </div>
+
+		</div>
+		
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script>
+         $(document).ready(function(){
+            $('.carousel').carousel();
+          });	
+    </script>
+</body>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">ADD Succrsale DATA</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<!--(ngSubmit)="(onSubmit())" -->
+			<form   >
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule	</label>
+					<input type="email" class="form-control"   placeholder="Entrer adress"
+					[(ngModel)]="Grh.ncin" name="a">
+				  </div>
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom </label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="Grh.nom" name="in">
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Prenom</label>
+					<input type="email" class="form-control"   placeholder="Entrer matricule"
+					[(ngModel)]="Grh.prenom" name="h">
+				  </div>
+
+					  <div class="form-group mb-2">
+						<label for="exampleInputEmail1">mdp	</label>
+						<input type="email" class="form-control"   placeholder="Entrer adress"
+						[(ngModel)]="Grh.mdp" name="b">
+					  </div>					 
+			  </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary" (click)="saveGestionnaire(Grh)"  >Ajouter</button>
+      </div>
+    </div>

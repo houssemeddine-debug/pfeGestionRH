@@ -1,0 +1,218 @@
+
+<div class="menu-bar">
+	<h1 class="logo">SMART<span> HR</span></h1>
+	<ul>
+	  <li><a class="nav-link scrollto" routerLink="/menu_directeur"><i class="bi bi-box-arrow-in-left"></i>Menu</a></li>
+	  
+	</ul>
+  </div>
+  <br>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter Gestionnaire</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<!--(ngSubmit)="(onSubmit())" -->
+			<form   >
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule	</label>
+					<input type="email" class="form-control"   placeholder="Entrer adress"
+					[(ngModel)]="Grh.ncin" name="a">
+					<p style="color: red;" *ngIf="test==1">Matricule invalide</p>
+					<p  *ngIf="test==0"></p>
+				  </div>
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom </label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="Grh.nom" name="in">
+					<p style="color: red;" *ngIf="test2==1">Nom invalide</p>
+					<p  *ngIf="test2==0"></p>
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Prenom</label>
+					<input type="email" class="form-control"   placeholder="Entrer matricule"
+					[(ngModel)]="Grh.prenom" name="h">
+					<p style="color: red;" *ngIf="test3==1">Prenom invalide</p>
+					<p  *ngIf="test3==0"></p>
+				  </div>
+	  
+					<div class="form-group mb-2">
+					  <label for="exampleInputEmail1">Role</label>
+					  <select class="input-field" aria-label="Default select example"class="form-control" [(ngModel)]="Grh.role" name="f" > 
+						<option  Value="r" >GESTIONNAIRE RH</option>
+						<option  Value="p" >GESTIONNAIRE DE PAIE</option>
+					  </select>
+					  <p style="color: red;" *ngIf="test4==1">RSélectionnez Un Role</p>
+					  <p  *ngIf="test4==0"></p>
+					  
+					</div>
+
+					<div class="form-group mb-2">
+						<label for="exampleInputEmail1">email</label>
+						<input type="email" class="form-control"   placeholder="Entrer adress"
+						[(ngModel)]="Grh.email" name="fe">
+						<p style="color: red;" *ngIf="test5==1">E-mail invalide</p>
+						<p  *ngIf="test5==0"></p>
+					  </div>
+
+					  <div class="form-group mb-2">
+						<label for="exampleInputEmail1">mdp	</label>
+						<input type="email" class="form-control"   placeholder="Entrer adress"
+						[(ngModel)]="Grh.mdp" name="b">
+						<p style="color: red;" *ngIf="test6==1">Mot De Passe invalide</p>
+						<p  *ngIf="test6==0"></p>
+					  </div>
+
+					  <label for="fruits-select">Sélectionnez Une Succursale :</label>
+					  <select class="input-field" aria-label="Default select example" [(ngModel)]="Grh.succursale.mat_succursale" name="aa" > 
+						<option   *ngFor="let s of listeS" [ngValue]="s.mat_succursale" >{{s.nom_succursale}}</option>
+					  </select>
+					  <p style="color: red;" *ngIf="test7==1">Sélectionnez Une Succursale</p>
+					  <p  *ngIf="test7==0"></p>
+					 
+			  </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  ><p>Annuler</p></button>
+        <button type="submit" class="btn btn-secondary"  (click)="saveGestionnaire(Grh)" >
+			<p *ngIf="o==0">Ajouter</p>
+			<p *ngIf="o==1"><i class="fa fa-spinner fa-spin"></i></p>
+		
+		</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+<h1>Gestion des Gestionnaires</h1>
+
+<button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: rgba(40,57,101,.9);">
+  Ajouter Un Gestionnaire 
+</button>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list" style="border-color: black;">
+					<thead>
+						<tr>
+							<th class="text-center">Matricule</th>
+							<th class="text-center">Nom</th>
+							<th class="text-center">Prenom</th>
+							<th class="text-center">Role</th>
+							<th class="text-center">Etat</th>
+							<th class="text-center">Succursale</th>
+							<th class="text-center">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody *ngIf="liste">
+						<tr *ngFor="let g of liste">
+							
+							<td class="text-center">
+								<img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+								{{g.ncin}} 
+							</td>
+							<td class="text-center">
+								{{g.nom}}
+							</td>
+							<td class="text-center">
+								{{g.prenom}}
+							</td>
+							<td *ngIf="g.role == 'r'" class="text-center">
+								Gestionnaire RH
+							</td>
+							<td *ngIf="g.role == 'p'" class="text-center">
+								Gestionnaire De Paie
+							</td>
+						
+							<td class="text-center" *ngIf="g.etat=='A'">
+							   Activé
+							</td>
+
+							<td class="text-center" *ngIf="g.etat=='D'">
+								Déactivé
+							 </td>
+
+							<td class="text-center">
+								{{g.succursale.nom_succursale}}
+							</td>
+
+							
+
+							<td style="width: 20%;">
+								<!-- <a  class="table-link" (click)="desactive(g.ncin)" >
+									<span class="fa-stack">
+										
+										<span  *ngIf="l==0">
+											<i class="fa fa-square fa-stack-2x"></i>
+											<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+										</span>
+										<span  *ngIf="l==1">
+											<i class="fa fa-spinner fa-spin"></i>
+										</span>
+										
+									</span>
+								</a> -->
+								<!-- <a data-bs-toggle="modal" href="#UpdateModal"  (click)="affichergestionnaire(g.ncin)" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse" ></i>
+									</span>
+								</a> -->
+								<a href="#" class="table-link danger" data-bs-toggle="modal" href="#myModal" (click)="env(g.ncin)">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+		  <h4 class="modal-title w-100">vous êtes sûr ?</h4>	
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+</div>
+<div class="modal-body">
+  <p> Si vous confirmez , ce gestionnaire sera supprimé. </p>
+</div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger"  onclick="location.reload()" (click)="deletegestionnaire(k)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+

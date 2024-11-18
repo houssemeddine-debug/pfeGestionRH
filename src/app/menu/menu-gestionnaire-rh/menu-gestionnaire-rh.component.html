@@ -1,0 +1,128 @@
+<body>
+  <div class="menu-bar">
+      <h1 class="logo">SMART<span> RH</span></h1>
+      <ul>
+        <li><a class="nav-link scrollto" routerLink=""><i class="bi bi-box-arrow-in-left"></i>Déconnexion</a></li>
+        
+      </ul>
+    </div>
+<br><br>
+<button class="btnRegister" routerLink="/menu_emp"><i class="bi bi-person"></i>
+    Mon Compte
+    </button>
+    <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="affichergestionnaire(id)" -->
+  <div class="profile">
+  <div class="carousel">
+          <div class="x" >
+            
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/tab_d"> <div class="img-area"><img src="assets/image/a12.png" alt=""></div></a>
+                  <div class="main-text">
+                      <h2>Gestion Des départements</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste de vos départements de plus ajouter , suprimmer un département et  modifier leurs informations.</p>
+                  </div>
+              </div>
+          
+  </div>
+  <div class="x">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/menu_rh2"> <div class="img-area"><img src="assets/image/a22.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Gestion Des Employées</h2>
+                      <p>La fonctionnalité "Gestion des employés" centralise les informations et facilite la gestion des ressources humaines au sein de l'entreprise.</p>
+                    </div>
+              </div>
+         
+  </div>
+  <div class="x">
+    
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/crud_formation">  <div class="img-area"><img src="assets/image/a21.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Gestion Des Formation</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste des formations de plus ajouter , suprimmer une demande de  Formation et modifier informations en cas d'acceptation.</p>
+                    </div>
+              </div>
+         
+  </div>
+
+
+<br><br><br>
+
+  <div class="y">
+         
+  </div>
+  <div class="y">
+   
+              <div class="card">
+                  <div class="box1"></div>
+                  <a routerLink="/crud_conge"> <div class="img-area"><img src="assets/image/a20.png" alt=""></div> </a>
+                  <div class="main-text">
+                      <h2>Gestion De Congé</h2>
+                      <p>Dans cet ecspace vous pouvez de consulter la liste des congés de plus réfuser ou accepter une demande et  modifier leurs informations en cas d'acceptation.</p>
+                  </div>
+              </div>
+         
+  </div>
+  <div class="y">
+          
+  </div>
+      </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <script>
+       $(document).ready(function(){
+          $('.carousel').carousel();
+        });	
+  </script>
+</body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">ADD Succrsale DATA</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<!--(ngSubmit)="(onSubmit())" -->
+			<form   >
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Matricule	</label>
+					<input type="email" class="form-control"   placeholder="Entrer adress"
+					[(ngModel)]="Grh.ncin" name="a">
+				  </div>
+				<div class="form-group mb-2">
+					<label for="exampleInputEmail1">Nom </label>
+					<input type="text" class="form-control"   placeholder="Entrer Nom"
+					[(ngModel)]="Grh.nom" name="in">
+				  </div>
+	
+				  <div class="form-group mb-2">
+					<label for="exampleInputEmail1">Prenom</label>
+					<input type="email" class="form-control"   placeholder="Entrer matricule"
+					[(ngModel)]="Grh.prenom" name="h">
+				  </div>
+
+					  <div class="form-group mb-2">
+						<label for="exampleInputEmail1">mdp	</label>
+						<input type="email" class="form-control"   placeholder="Entrer adress"
+						[(ngModel)]="Grh.mdp" name="b">
+					  </div>
+					 
+			  </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary" (click)="saveGestionnaire(Grh)"  >Ajouter</button>
+      </div>
+    </div>

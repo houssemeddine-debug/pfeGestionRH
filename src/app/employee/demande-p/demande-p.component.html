@@ -1,0 +1,178 @@
+
+<app-nav-p></app-nav-p>
+<br>
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <br>
+                    <div class="header">
+                        <h4 class="title">Demande De Pret</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Grade (disabled)</label>
+                                        <input type="text" class="form-control" disabled placeholder="Company" [(ngModel)]="g.grade_Utilisateur" name="g">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ncin</label>
+                                        <input type="text" class="form-control" disabled placeholder="Username" [(ngModel)]="g.mat_Utilisateur" name="a">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Statut</label>
+                                        <input type="email" class="form-control" disabled placeholder="Email"  [(ngModel)]="g.role_Utilisateur" name="s">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" disabled placeholder="Company" [(ngModel)]="g.nom_Utilisateur"  name="p">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" disabled placeholder="Last Name" [(ngModel)]="g.prenom_Utilisateur"  name="n">
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <label>Type Du Pret </label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                            <select class="form-control" [(ngModel)]="t" name="t" (click)="p()">
+                                <option value="12" >Long terme (Pour 12 mois)</option>
+                                <option value="6">court terme (Pour 6 mois)</option>
+                               
+                            </select>
+
+                            <ng-container *ngIf="test==false">
+                                <br><br><br>
+                                
+                                 <div class="header"  align="center">
+                                    <h4 style="color: red;" class="title" ><button >Vous Avez Deja Un Pret</button></h4>
+                                 </div>
+                            </ng-container>
+
+                            <ng-container *ngIf=" t=='12' && g.grade_Utilisateur=='A' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme"  class="form-control" placeholder="Max 10500 DT" step="100" min="0" max ="10500"name="o"> 
+                                </div>
+                             </ng-container> 
+
+                             <ng-container *ngIf=" t=='6' && g.grade_Utilisateur=='A' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 4000 DT" step="100" min="0" max ="4000"name="o"> 
+                                </div>
+                             </ng-container> 
+
+                             <ng-container *ngIf=" t=='12' && g.grade_Utilisateur=='B' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 9000 DT" step="100" min="0" max ="9000"name="o"> 
+                                </div>
+                             </ng-container> 
+                             <ng-container *ngIf=" t=='6' && g.grade_Utilisateur=='B' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 2200 DT" step="100" min="0" max ="2000"name="o"> 
+                                </div>
+                             </ng-container> 
+                             
+                             <ng-container *ngIf=" t=='12' && g.grade_Utilisateur=='C' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 9000 DT" step="100" min="0" max ="6000"name="o"> 
+                                </div>
+                             </ng-container> 
+                             <ng-container *ngIf=" t=='6' && g.grade_Utilisateur=='C' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 2200 DT" step="100" min="0" max ="1500"name="o"> 
+                                </div>
+                             </ng-container> 
+                            
+                             <ng-container *ngIf=" t=='12' && g.grade_Utilisateur=='D' && test==true">
+                                <div>
+                                    <label>SOMME</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 9000 DT" step="100" min="0" max ="4000"name="o"> 
+                                </div>
+                             </ng-container> 
+                             <ng-container *ngIf=" t=='6' && g.grade_Utilisateur=='D' && test==true">
+                                <div>
+                                    <label>Somme</label>
+                                    <input type="number" [(ngModel)]="somme" class="form-control" placeholder="Max 2200 DT" step="100" min="0" max ="1000"name="o"> 
+                                </div>
+                             </ng-container> 
+                         </div>
+                         </div>
+                        </div>
+                                <br>
+                                     <ng-container *ngIf="(t==6 && test==true) || (t==12 && test==true)" >
+                                        <div class="card">
+                                            <div class="header">
+                                                <h4 class="title">Planning Du Pret</h4>
+                                                <p class="category">Confirmer les details finale du pret</p>
+                                            </div>
+                                            <div class="content table-responsive table-full-width">
+                                                  <table class="table table-hover table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Mdébut</th><th>Mfin</th><th>Duré</th><th>versement Mensuel</th><th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr >
+                                                                <td>{{formattedDatee}}</td>
+                                                                <td>{{formattedDat}}</td>
+                                                                <td>{{t}} mois</td>
+                                                                <td>{{somme/t}}</td>
+                                                                <td><button type="submit" class="btn btn-info btn-fill pull-right" (click)="AjouterPret()">Confirmer Et Générer Planning</button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                  </table>
+                        
+                                            </div>
+                                        </div>
+    
+                                     </ng-container>
+                                     
+                                        <br>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                   
+                        <img src="assets\image\salaire.jpg"alt="..."/>
+                
+                    
+                    <hr>
+                    <div class="text-center">
+                        <p>N'oublie pas l'importance du prêt pour atteindre tes objectifs. C'est un outil précieux qui peut t'aider à concrétiser tes aspirations. Bonne chance !</p>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

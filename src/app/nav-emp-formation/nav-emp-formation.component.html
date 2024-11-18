@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+
+<div class="menu-bar">
+  <h1 class="logo">SMART<span> HR</span></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" routerLink="/demande_emp_formation">Demande Formations</a></li>
+        </ul>
+        <ul>
+           <li><a class="nav-link scrollto"  href="#myModal" class="trigger-btn" data-toggle="modal">Suivi Demandes</a></li>
+          </ul>
+          <ul>
+           <li><a class="nav-link scrollto" routerLink="/menu_emp">Menu</a></li>
+        </ul>
+      </nav>
+      </div>
+
+
+
+      
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+  <div align="right">
+    <button id="e" (click)="oo()"><i style="font-size: 30px;" class="bi bi-box-arrow-in-left"></i></button>
+  </div>
+	<div align="center">   
+      <br><br><br>
+      <table id="customers">
+        <tr>
+          <th>Demande De Formation </th>
+          <th>état demande</th>
+          <th>Formation en </th>
+          <th>Date</th>
+        
+        </tr>
+        <tbody *ngFor="let item of liste ">
+        <tr *ngIf="item.role == 'f' " >
+          <td>Formation Proposé  : </td>
+          <td > {{item.nom_formation}} </td>
+          <td > {{item.sujet_formation}} </td>
+          <td > {{item.date_formation}} </td>
+        </tr>
+        </tbody>
+        <tbody *ngFor="let item of liste1 ">
+        <hr>
+        <tr *ngIf="item.role == 'd' " >
+          <td>Votre Demande  : </td>
+          <td > En Cours </td>
+          <td > {{item.nom_formation}} </td>
+          <td > {{item.date_formation}} </td>
+        </tr>
+       
+      </tbody>
+      </table>
+</div>
+  </div>

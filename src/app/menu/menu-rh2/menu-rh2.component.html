@@ -1,0 +1,282 @@
+<app-nav></app-nav>
+
+<br>
+   
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: rgba(40,57,101,.9);">
+        <h5 class="modal-title" id="exampleModalLabel" >Ajouter Employé</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  >
+
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Matricule Employe</label>
+            <input type="email" class="form-control"   placeholder="Entrer matricule"
+            [(ngModel)]="employee.mat_Utilisateur" name="emt">
+            <p style="color: red;" *ngIf="test==1">Matricule invalide</p>
+						<p  *ngIf="test==0"></p>
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Nom Employe</label>
+            <input type="text" class="form-control"   placeholder="Entrer Nom"
+            [(ngModel)]="employee.nom_Utilisateur" name="nom_dnt">
+            <p style="color: red;" *ngIf="test2==1">Nom invalide</p>
+						<p  *ngIf="test2==0"></p>
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Prenom Employe</label>
+            <input type="text" class="form-control"   placeholder="Entrer Nom"
+            [(ngModel)]="employee.prenom_Utilisateur" name="nom_drtement">
+            <p style="color: red;" *ngIf="test3==1">Prenom invalide</p>
+						<p  *ngIf="test3==0"></p>
+          </div>
+    
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Adresse</label>
+            <input type="email" class="form-control"   placeholder="Entrer matricule"
+            [(ngModel)]="employee.adresse_Utilisateur" name="email">
+            <p style="color: red;" *ngIf="test4==1">Adresse invalide</p>
+						<p  *ngIf="test4==0"></p>
+          </div>
+  
+          <div class="form-group mb-2">
+            <label for="exampleInputEmail1">E-mail</label>
+            <input type="text" class="form-control"   placeholder="Entrer email"
+              [(ngModel)]="employee.email_Utilisateur" name="nom_">
+              <p style="color: red;" *ngIf="test5==1">E-mail invalide</p>
+						<p  *ngIf="test5==0"></p>
+            </div>
+    
+            <div class="form-group mb-2">
+            <label for="exampleInputEmail1">Role</label>
+            <input type="email" class="form-control"   placeholder="Entrer adress"
+            [(ngModel)]="employee.role_Utilisateur" name="email_departemen">
+            <p style="color: red;" *ngIf="test6==1">Role invalide</p>
+						<p  *ngIf="test6==0"></p>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Grade</label>
+              <select class="input-field" aria-label="Default select example"[(ngModel)]="employee.grade_Utilisateur"  name="email_depa" > 
+              <option [ngValue]="'A'">A</option>
+              <option [ngValue]="'B'">B</option>
+              <option [ngValue]="'C'">C</option>
+              <option [ngValue]="'D'">D</option>
+              </select>
+              </div>
+              <div class="form-group mb-2">
+                <label for="exampleInputEmail1">Salaire</label>
+                <input type="email" class="form-control"   placeholder="Entrer adress"
+                [(ngModel)]="employee.salaire_Utilisateur" name="email_departe">
+                <p style="color: red;" *ngIf="test7==1">Salaire invalide</p>
+						<p  *ngIf="test7==0"></p>
+               </div>
+
+                <div class="form-group mb-2">
+                  <label for="exampleInputEmail1">Mot de Passe</label>
+                  <input type="email" class="form-control"   placeholder="Entrer adress"
+                  [(ngModel)]="employee.mdp_Utilisateur" name="email_departeme">
+                  <p style="color: red;" *ngIf="test8==1">Mot De Passe invalide</p>
+						<p  *ngIf="test8==0"></p>
+                  </div>
+
+                  <label for="fruits-select">Sélectionnez Son departement :</label>
+                  <select class="input-field" aria-label="Default select example" [(ngModel)]="employee.departement.id" name="aad" > 
+                  <option   *ngFor="let s of maListe" [ngValue]="s.id" >{{s.nom_departement}}</option>
+                  </select>
+          
+          
+        </form>
+      </div>
+      <div  class="modal-footer" style="background: rgba(40,57,101,.9);" >
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+        <button class="btn btn-secondary" (click)="saveEmployee(employee)" >
+          <p *ngIf="o==0">Ajouter</p>
+          <p *ngIf="o==1"><i class="fa fa-spinner fa-spin"></i></p>  
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div> 
+  
+ 
+
+  <h1 style="color: rgba(40,57,101,.9);">Gestion des Employés</h1>
+
+  
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: rgba(40,57,101,.9);">
+    Ajouter Employé
+  </button>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="main-box clearfix">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <thead>
+              <tr>
+                <th class="text-center">Nom et prenom</th>
+                <th class="text-center">Matricule</th>
+                <th class="text-center">Fonction</th>
+                <th class="text-center">Département</th>
+                <th class="text-center">Actions&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="maListeA">
+              <tr *ngFor="let e1 of maListeA" >
+                <td>
+                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                 
+                  <span class="user-subhead">  {{e1.nom_Utilisateur}}  {{e1.prenom_Utilisateur}}</span>
+                </td>
+                <td>
+                  {{e1.mat_Utilisateur}}  
+                </td>
+                <td class="text-center">
+                  {{e1.role_Utilisateur}}   
+                </td>
+                <td class="text-center">
+                  {{e1.departement.nom_departement}}
+                </td>
+                <td style="width: 20%;" class="text-center">
+                  
+                  <a data-bs-toggle="modal" href="#ModalUpdate"class="table-link">
+                    <span class="fa-stack">
+               
+                      <i class="bi bi-search" (click)="afficher(e1.mat_Utilisateur)"></i>
+                    </span>
+                  </a>
+                  <a  href="#myModal" data-toggle="modal" class="table-link danger">
+                    <span class="fa-stack">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa fa-trash-o fa-stack-1x fa-inverse" (click)="env(e1.mat_Utilisateur)"></i>
+                    </span>
+                  </a>
+                </td>
+              </tr>
+             
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>	
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Are you sure?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete these records? This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" onclick="location.reload()" (click)="deleteE(k)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+ 
+  
+  <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: rgba(40,57,101,.9);">
+          <h5 class="modal-title" id="exampleModalLabel">Consulter Employé</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form  >
+
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Matricule Employe</label>
+              <input type="email" class="form-control"    disabled placeholder="Entrer matricule"
+              [(ngModel)]="fo.mat_Utilisateur" name="emt">
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Nom Employe</label>
+              <input type="text" class="form-control"    disabled placeholder="Entrer Nom"
+              [(ngModel)]="fo.nom_Utilisateur" name="nom_dnt">
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Prenom Employe</label>
+              <input type="text" class="form-control"    disabled placeholder="Entrer Nom"
+              [(ngModel)]="fo.prenom_Utilisateur" name="nom_drtement">
+            </div>
+      
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Adresse</label>
+              <input type="email" class="form-control"   disabled placeholder="Entrer matricule"
+              [(ngModel)]="fo.adresse_Utilisateur" name="email">
+            </div>
+    
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">E-mail</label>
+              <input type="text" class="form-control"    disabled placeholder="Entrer email"
+                [(ngModel)]="fo.email_Utilisateur" name="nom_">
+              </div>
+      
+              <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Role</label>
+              <input type="email" class="form-control"   disabled placeholder="Entrer adress"
+              [(ngModel)]="fo.role_Utilisateur" name="email_departemen">
+              </div>
+  
+              <div class="form-group mb-2">
+                <label for="exampleInputEmail1">Grade</label>
+                <select class="input-field"  disabled placeholder aria-label="Default select example"[(ngModel)]="fo.grade_Utilisateur"  name="email_depa" > 
+                <option [ngValue]="'A'">A</option>
+                <option [ngValue]="'B'">B</option>
+                <option [ngValue]="'C'">C</option>
+                <option [ngValue]="'D'">D</option>
+                </select>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="exampleInputEmail1">Salaire</label>
+                  <input type="email" class="form-control"    disabled placeholder="Entrer adress"
+                  [(ngModel)]="fo.salaire_Utilisateur" name="email_departe">
+                 </div>
+  
+                    <label for="fruits-select">Département :</label>
+                    <select class="input-field" aria-label="Default select example"  disabled placeholder [(ngModel)]="fo.departement.id" name="aad" > 
+                    <option   *ngFor="let s of maListe" [ngValue]="s.id" >{{s.nom_departement}}</option>
+                    </select>
+            
+            
+          </form>
+      </div>
+      <div  class="modal-footer"style="background: rgba(40,57,101,.9);">
+        <button  class="btn btn-danger" data-bs-dismiss="modal"  >Annuler</button>
+        <button type="submit" class="btn btn-secondary">OK</button>
+      </div>
+    </div>
+  </div>
+  </div> 
